@@ -833,12 +833,12 @@ config.status: configure version.c
 	  LANGUAGES="$(CONFIG_LANGUAGES)" $(SHELL) config.status --recheck; \
 	fi
 
-all.internal: start.encap rest.encap doc
+all.internal: start.encap rest.encap
 # This is what to compile if making a cross-compiler.
 # Note that we can compile enquire using the cross-compiler just built,
 # although we can't run it on this machine.
 all.cross: native gcc-cross specs stmp-headers $(STMP_FIXPROTO) $(LIBGCC) \
-	$(LIBGCC1_TEST) $(EXTRA_PARTS) lang.all.cross doc
+	$(LIBGCC1_TEST) $(EXTRA_PARTS) lang.all.cross
 # This is what to compile if making gcc with a cross-compiler.
 all.build: native xgcc$(exeext) xcpp$(exeext) $(EXTRA_PARTS) lang.all.build
 # This is what must be made before installing GCC and converting libraries.
@@ -2433,7 +2433,7 @@ install: $(INSTALL_TARGET) ; @true
 # Install the driver last so that the window when things are
 # broken is small.
 install-normal: install-common $(INSTALL_HEADERS) $(INSTALL_LIBGCC) \
-    $(INSTALL_CPP) install-man install-info intl.install lang.install-normal \
+    $(INSTALL_CPP) intl.install lang.install-normal \
     install-driver
 
 # Do nothing while making gcc with a cross-compiler. The person who
