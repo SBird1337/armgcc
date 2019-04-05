@@ -1,4 +1,4 @@
-FROM karathan/dapper:6.06
+FROM ubuntu:bionic
 USER root
 RUN apt-get update && apt-get install -y wget gcc make libc6-dev build-essential autoconf
 RUN mkdir /arm-elf
