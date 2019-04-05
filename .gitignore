@@ -1,3 +1,9 @@
+##project specific
+.vscode
+arm-elf-src/build
+arm-elf
+artifacts
+
 # Prerequisites
 *.d
 
