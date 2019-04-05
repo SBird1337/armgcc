@@ -1,4 +1,10 @@
 #!/bin/sh
 rm -rf arm-elf/*
 mkdir /arm-elf/src /arm-elf/build
-echo "hello"
+cd arm-elf-src/build && mkdir binutils-2.22 && cd binutils-2.22
+../../src/binutils-2.22/configure --target=arm-elf --prefix=/arm-elf --disable-werror --with-cpu=arm7tdmi --with-no-thumb-interwork --with-mode=thumb --host=i686-pc-linux --build=i686-pc-linux
+make all install
+export PATH="$PATH:/arm-elf/bin"
+cd .. && mkdir gcc-2.95.1 && cd gcc-2.95.1
+../../src/gcc-2.95.1/configure --target=arm-elf --prefix=/arm-elf --disable-werror --with-cpu=arm7tdmi --with-no-thumb-interwork --with-mode=thumb --host=i686-pc-linux --build=i686-pc-linux
+make all-gcc install-gcc
