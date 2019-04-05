@@ -488,6 +488,9 @@ for machine in $build $host $target; do
 	arm*-*-*)
 		cpu_type=arm
 		;;
+	thumb*-*-*)
+	  cpu_type=arm
+		;;
 	c*-convex-*)
 		cpu_type=convex
 		;;
@@ -791,6 +794,10 @@ changequote([,])dnl
         arm*-*-oabi)
 		tm_file=arm/unknown-elf-oabi.h
 		tmake_file=arm/t-arm-elf
+		;;
+	thumb*-*-elf)
+		tm_file=arm/unknown-elf.h
+		tmake_file=arm/t-thumb
 		;;
 	c1-convex-*)			# Convex C1
 		target_cpu_default=1

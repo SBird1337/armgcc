@@ -2923,6 +2923,9 @@ for machine in $build $host $target; do
 	arm*-*-*)
 		cpu_type=arm
 		;;
+	thumb*-*-*)
+	  cpu_type=arm
+		;;
 	c*-convex-*)
 		cpu_type=convex
 		;;
@@ -3214,6 +3217,13 @@ for machine in $build $host $target; do
 	arm*-*-elf)
 		tm_file=arm/unknown-elf.h
 		tmake_file=arm/t-arm-elf
+		;;
+	thumb*-*-elf)
+		tm_file=arm/thumb-elf.h
+		tmake_file=arm/t-thumb
+		out_file=arm/thumb.c
+		xm_file=arm/xm-thumb.h
+		md_file=arm/thumb.md
 		;;
         arm*-*-oabi)
 		tm_file=arm/unknown-elf-oabi.h
