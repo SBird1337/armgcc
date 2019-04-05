@@ -526,7 +526,7 @@ arm_override_options ()
   if ((TARGET_SOFT_FLOAT || arm_fpu != FP_HARD) && (tune_flags & FL_MODE32) == 0)
     flag_schedule_insns = flag_schedule_insns_after_reload = 0;
   
-  arm_prog_mode = TARGET_APCS_32 ? PROG_MODE_PROG32 : PROG_MODE_PROG26;
+  //arm_prog_mode = TARGET_APCS_32 ? PROG_MODE_PROG32 : PROG_MODE_PROG26;
   
   if (structure_size_string != NULL)
     {
